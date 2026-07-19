@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ShoppingListApp.Data;
+using ShoppingListApp.Interfaces;
+using ShoppingListApp.Services;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IShoppingListService, ShoppingListService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
