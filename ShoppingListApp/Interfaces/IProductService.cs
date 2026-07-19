@@ -1,6 +1,16 @@
-﻿namespace ShoppingListApp.Interfaces
+﻿using ShoppingListApp.Models;
+
+namespace ShoppingListApp.Interfaces;
+
+public interface IProductService
 {
-    public class IProductService
-    {
-    }
+    Task<IEnumerable<Product>> GetAllAsync();
+
+    Task<Product?> GetByIdAsync(int id);
+
+    Task AddAsync(Product product);
+
+    Task UpdateAsync(Product product);
+
+    Task DeleteAsync(int id);
 }
