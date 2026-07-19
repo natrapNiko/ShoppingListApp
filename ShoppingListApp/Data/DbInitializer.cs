@@ -8,7 +8,7 @@ public class DbInitializer
     public static async Task SeedAsync(IServiceProvider services)
     {
         var roleMenager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
+        var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
         var context = services.GetRequiredService<ApplicationDbContext>();
 
         if (!await roleMenager.RoleExistsAsync("Admin"))
