@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+
+    <head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width"/>
+
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+
+    <link rel="stylesheet"
+        href="~/css/site.css"/>
+    </head>
+
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            
+            <div class="container-fluid">
+
+                <a class="navbar-brand"
+                asp-area="Admin"
+                asp-controller="Dashboard"
+                asp-action="Index">
+
+                Shopping Admin
+
+            </a>
+
+            <div class="navbar-nav">
+            <a class="nav-link"
+            asp-area="Admin"
+            asp-controller="Dashboard"
+            asp-action="Index">
+        
+            Dashboard
+            </a>
+
+            <a class="nav-link"
+            asp-area="Admin"
+            asp-controller="Categories"
+            asp-action="Index">
+            
+            Categories
+
+            </a>
+        </div>
+
+
+
+            </div>
+        </nav>
+
+        <div class="container mt-4">
+            @RenderBody()
+        </div>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    </body>
+    
+</html>

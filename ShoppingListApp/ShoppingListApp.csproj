@@ -27,7 +27,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\ViewModels\" />
     <Folder Include="Helpers\" />
     <Folder Include="Tests\" />
     <Folder Include="ViewModels\" />

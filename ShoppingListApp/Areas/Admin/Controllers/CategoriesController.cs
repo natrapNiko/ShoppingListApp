@@ -16,9 +16,18 @@ public class CategoriesController : Controller
         _categoryService = categoryService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string search)
     {
         var categories = await _categoryService.GetAllAsync();
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            categories = categories.Where(c =>
+                c.Name.Contains(search,
+                    StringComparison.OrdinalIgnoreCase));
+        }
+
+        ViewBag.Search = search;
 
         return View(categories);
     }

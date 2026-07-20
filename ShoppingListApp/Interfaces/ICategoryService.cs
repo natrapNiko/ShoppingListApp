@@ -4,6 +4,7 @@ namespace ShoppingListApp.Interfaces;
 
 public interface ICategoryService
 {
+    Task<IEnumerable<Category>> GetPagedAsync(int page,int pageSize);
     Task<IEnumerable<Category>> GetAllAsync();
 
     Task<Category?> GetByIdAsync(int id);

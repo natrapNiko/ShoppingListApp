@@ -38,6 +38,17 @@ public class CategoryService : ICategoryService
         await _context.SaveChangesAsync();
     }
 
+    public async Task<IEnumerable<Category>> GetPagedAsync(
+    int page,
+    int pageSize)
+    {
+        return await _context.Categories
+            .OrderBy(c => c.Name)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+    }
+
     public async Task DeleteAsync(int id)
     {
         var category = await _context.Categories.FindAsync(id);
